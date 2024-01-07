@@ -1,3 +1,8 @@
+[build-system]
+requires = ["setuptools>=57.4.0"]
+build-backend = "setuptools.build_meta"
+
+
 [project]
 name = "vdot_calculator"
 version = "0.0.0.0"
@@ -12,8 +17,12 @@ classifiers = [
     "Development Status :: 1 - Planning",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Intended Audience :: Developers"
 ]
 
 [project.urls]
-Homepage = "https://github.com/pypa/sampleproject"
-Issues = "https://github.com/pypa/sampleproject/issues"
+Homepage = "https://github.com/CassioMaciel/Daniels_Running_Formula"
+Issues = "https://github.com/CassioMaciel/Daniels_Running_Formula/issues"
+
+[project.metadata]
+keywords = ["Vdot", "running", "calculator", "Daniels Running Formula", "athletics"]
