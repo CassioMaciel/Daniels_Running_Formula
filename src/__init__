@@ -1,0 +1,3 @@
+from .módulo_soma import função_soma as soma
+
+__all__ = ["soma"]

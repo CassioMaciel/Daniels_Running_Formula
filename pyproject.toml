@@ -1,0 +1,19 @@
+[project]
+name = "vdot_calculator"
+version = "0.0.0.0"
+authors = [
+  { name="Cássio Maciel Lemos", email="cassio.lemos@petrobras.com.br" },
+]
+description = "A compact VDOT calculator adhering to the original Daniels Running Formula book."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 1 - Planning",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
