@@ -37,7 +37,7 @@ $ python -m pip install vdot_calculator
 >>> time = datetime.time(minute=27, second=00)
 >>> distance = 5000 # meters
 >>> vdot.vdot_from_time_and_distance(time, distance)
-34.96
+34.96321966414413
 ```
 
 ```
@@ -46,7 +46,7 @@ $ python -m pip install vdot_calculator
 >>> pace = datetime.time(minute=5, second=24)
 >>> distance = 5000 # meters
 >>> vdot.vdot_from_distance_and_pace(distance,pace)
-34.96
+34.96321966414413
 ```
 
 ```
@@ -55,7 +55,7 @@ $ python -m pip install vdot_calculator
 >>> pace = datetime.time(minute=5, second=24)
 >>> time = datetime.time(minute=27, second=00)
 >>> vdot.vdot_from_time_and_pace(time,pace)
-34.96
+34.96321966414413
 ```
 
 ### Contact
