@@ -1,29 +1,39 @@
 import src.vdot_calculator.func_module as vdot
 import datetime
 from pytest import mark
+import pytest
 
 
-def test_vdot_from_time_and_pace_time_35_pace_7_vdot_25():
-    time = datetime.time(minute=35, second=00)
-    pace = datetime.time(minute=7, second=00)
-    v_dot = vdot.vdot_from_time_and_pace(time, pace)
-    error = abs(v_dot - 25.5)
-    assert error <= 0.1
+@mark.parametrize(
+    'v_dot, time, pace',
+    [
+        (25.5, datetime.time(minute=35, second=00), datetime.time(minute=7, second=00))
+    ])
+def test_vdot_from_time_and_pace(v_dot, time, pace):
+    error = vdot.vdot_from_time_and_pace(time, pace) - v_dot
+    assert abs(error) <= 0.2
 
 
-def test_vdot_from_distance_10k_and_pace_5_vdot_39():
-    pace = datetime.time(minute=5, second=7)
-    distance = 10000  # m
-    error = vdot.vdot_from_distance_and_pace(distance, pace) - 39
-    assert abs(error) <= 0.1
+@mark.parametrize(
+    'v_dot, distance, pace',
+    [
+        (39, 10000, datetime.time(minute=5, second=7)),
+        (39, "10000", datetime.time(minute=5, second=7)),
+    ])
+def test_vdot_from_distance(v_dot, distance, pace):
+
+    error = vdot.vdot_from_distance_and_pace(distance, pace) - v_dot
+    assert abs(error) <= 0.2
 
 
-def test_5000m_and_2408():
-    distance = 5000  # meters
-    time = datetime.time(minute=24, second=8)
-    v_dot = vdot.vdot_from_time_and_distance(time, distance)
-    error = abs(v_dot-40)
-    assert error <= 0.1
+@mark.parametrize(
+    'v_dot, distance, time',
+    [
+        (40, 5000, datetime.time(minute=24, second=8))
+    ])
+def test_vdot_from_time_and_distance(v_dot, distance, time):
+    error = vdot.vdot_from_time_and_distance(time, distance) - v_dot
+    assert abs(error) <= 0.2
 
 
 @mark.parametrize(
@@ -508,3 +518,20 @@ def test_5000m_and_2408():
         ])
 def test_direct(v_dot, distance, time_minutes):
     assert abs(vdot.direct(time_minutes, distance) - v_dot) <= 0.2
+
+@mark.type_error
+def test_vdot_from_time_and_pace_time_TYPE_ERROR_1():
+    time = datetime.time(minute=35, second=00)
+    pace = 7.0
+    with pytest.raises(TypeError) as excinfo:
+        v_dot = vdot.vdot_from_time_and_pace(time, pace)  # type: ignore
+    assert str(excinfo.value) == "The input should be type datetime.time"
+
+
+@mark.type_error
+def test_vdot_from_time_and_pace_time_TYPE_ERROR_2():
+    time = 35.0
+    pace = datetime.time(minute=7, second=00)
+    with pytest.raises(TypeError) as excinfo:
+        v_dot = vdot.vdot_from_time_and_pace(time, pace)  # type: ignore
+    assert str(excinfo.value) == "The input should be type datetime.time"
