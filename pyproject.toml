@@ -1,11 +1,11 @@
 [build-system]
-requires = ["setuptools>=57.4.0"]
+requires = ["pip>=57.4.0"]
 build-backend = "setuptools.build_meta"
 
 
 [project]
 name = "vdot_calculator"
-version = "0.0.0.3"
+version = "0.0.0.4"
 authors = [
   { name="Cássio Maciel Lemos", email="cassio.lemos@petrobras.com.br" },
 ]
