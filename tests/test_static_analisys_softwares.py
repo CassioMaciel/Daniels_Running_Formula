@@ -3,7 +3,7 @@ import subprocess
 
 def test_pylint():
     result = subprocess.run(
-        ['pylint', '.\\src\\vdot_calculator\\func_module.py'],
+        ['pylint', '.\\src\\vdot_calculator'],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
@@ -20,7 +20,7 @@ def test_pylint():
 
 def test_mypy():
     result = subprocess.run(
-        ['mypy', '.\\src\\vdot_calculator\\func_module.py'],
+        ['mypy', '.\\src\\vdot_calculator'],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
@@ -31,5 +31,5 @@ def test_mypy():
 
     # Verificar se a saída contém o rating esperado
     assert (
-        'Success: no issues found in 1 source file' in result.stdout
+        'Success: no issues found in 11 source file' in result.stdout
     ), f'issues found in mypy execution\n{result.stdout}'

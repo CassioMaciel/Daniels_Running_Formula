@@ -1,4 +1,4 @@
-import src.vdot_calculator.func_module as vdot
+import src.vdot_calculator as vdot
 import datetime
 from pytest import mark
 import pytest
